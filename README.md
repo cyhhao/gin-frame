@@ -1,16 +1,16 @@
 # 简介
 gin 脚手架，集成了以下依赖
 
--  `github.com/go-ini/ini`  
+-  [go-ini/ini](github.com/go-ini/ini)  
     读取 ini 配置文件，用于不同环境的参数配置，支持从环境变量读取配置
     
-- `github.com/sirupsen/logrus`  
+-  [sirupsen/logrus](github.com/sirupsen/logrus)  
     打印 log，支持各种格式、颜色的 log 打印
     
-- `github.com/jinzhu/gorm`    
+-  [jinzhu/gorm](github.com/jinzhu/gorm)    
     著名 ORM
     
-以上几个都是各自功能类库里 star 数最多的
+以上几个依赖都是各自功能类别里 star 数最多的优秀类库
 
 # 启动
 ```shell
@@ -43,9 +43,9 @@ password = ${MYSQL_PASSWORD}
 export MYSQL_PASSWORD=password
 ``` 
 
-# 热更新debug
-推荐使用 `github.com/cosmtrek/air`
+# 代码热更新
+代码变更，自动热更新重启。推荐使用 [github.com/cosmtrek/air]([github.com/cosmtrek/air)
 
-`.air.conf`是一份默认配置，若已安装 air ，直接运行 air 即可
+`.air.conf`文件是一份默认配置，若已安装 air ，直接在路径下运行 `air` 即可
 
 
