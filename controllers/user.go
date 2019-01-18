@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+
 func UserSetup(v1 *gin.RouterGroup) {
 	r := v1.Group("/user")
 
@@ -15,8 +16,7 @@ func UserSetup(v1 *gin.RouterGroup) {
 
 }
 
-// Name will print hello name
-// @Summary Print
+// @Summary 登录
 // @Accept json
 // @Produce  json
 // @Param name query string true "name"
@@ -47,6 +47,11 @@ func login(c *gin.Context) {
 	})
 }
 
+// @Summary Print
+// @Accept json
+// @Produce  json
+// @Param name query string true "name"
+// @Router /logout [get]
 func logout(c *gin.Context) {
 
 }

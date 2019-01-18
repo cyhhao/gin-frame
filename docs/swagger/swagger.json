@@ -12,28 +12,7 @@
         "license": {},
         "version": "1.0"
     },
-    "host": "petstore.swagger.io",
+    "host": "{{.Host}}",
     "basePath": "/v1",
-    "paths": {
-        "/login": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "Print",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "name",
-                        "name": "name",
-                        "in": "query",
-                        "required": true
-                    }
-                ]
-            }
-        }
-    }
+    "paths": {}
 }
