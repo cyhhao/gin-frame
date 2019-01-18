@@ -1,12 +1,19 @@
 package main
 
 import (
+	"github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+)
+
+import (
+	_ "gin-frame/docs"
 	"net/http"
 	"gin-frame/routers"
 	"github.com/gin-gonic/gin"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"gin-frame/utils"
 )
+
 
 func main() {
 	// 初始化日志
@@ -17,6 +24,9 @@ func main() {
 	utils.SetupOrm()
 
 	router := gin.Default()
+
+	// 初始化 swagger
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	routers.SetupRouter(router)
 

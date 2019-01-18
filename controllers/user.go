@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"gin-frame/models"
-		. "gin-frame/utils"
+	. "gin-frame/utils"
 	"net/http"
 )
 
@@ -15,6 +15,12 @@ func UserSetup(v1 *gin.RouterGroup) {
 
 }
 
+// Name will print hello name
+// @Summary Print
+// @Accept json
+// @Produce  json
+// @Param name query string true "name"
+// @Router /login [get]
 func login(c *gin.Context) {
 	user := models.Users{Name: "cyh", Age: 18, Email: "abcdefg@qq.com"}
 	err := Orm.Create(&user).Error
