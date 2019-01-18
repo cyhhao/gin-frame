@@ -3,8 +3,8 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"gin-frame/models"
-	"database/sql"
-	. "gin-frame/utils"
+		. "gin-frame/utils"
+	"net/http"
 )
 
 func UserSetup(v1 *gin.RouterGroup) {
@@ -16,7 +16,7 @@ func UserSetup(v1 *gin.RouterGroup) {
 }
 
 func login(c *gin.Context) {
-	user := models.Users{Name: "cyh", Age: sql.NullInt64{Int64: 18, Valid: true}, Email: "vvv@qqq.com"}
+	user := models.Users{Name: "cyh", Age: 18, Email: "abcdefg@qq.com"}
 	err := Orm.Create(&user).Error
 	if err != nil {
 		Log.Errorln(err)
@@ -30,12 +30,15 @@ func login(c *gin.Context) {
 		Log.WithField("user", searchUser).Info("test")
 	}
 
-	searchUser.Age.Int64 = 24
+	searchUser.Age = 24
 	err = Orm.Save(&searchUser).Error
 	if err != nil {
 		Log.Errorln(err)
 	}
 
+	c.JSON(http.StatusOK, gin.H{
+		"user": searchUser,
+	})
 }
 
 func logout(c *gin.Context) {
