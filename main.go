@@ -9,12 +9,17 @@ import (
 )
 
 func main() {
+	// 初始化日志
 	utils.SetupLogging()
+	// 初始化配置
 	utils.SetupConfig()
+	// 初始化 ORM
 	utils.SetupOrm()
 
 	router := gin.Default()
+
 	routers.SetupRouter(router)
+
 	s := &http.Server{
 		Addr:    ":" + utils.GetConfig("app::port").String(),
 		Handler: router,
