@@ -12,6 +12,8 @@ gin 脚手架，集成了以下依赖
     
 以上几个依赖都是各自功能类别里 star 数最多的优秀类库
 
+使用 [dep](https://github.com/golang/dep) 管理依赖
+
 # 启动
 ```shell
 # 开发环境
