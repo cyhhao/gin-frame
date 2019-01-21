@@ -10,6 +10,7 @@ import (
 	"gin-frame/routers"
 	"github.com/gin-gonic/gin"
 	"gin-frame/utils"
+	"gin-frame/middleware"
 )
 
 // @title API Document 2
@@ -31,7 +32,9 @@ func main() {
 	// 初始化 ORM
 	//utils.SetupOrm()
 
-	router := gin.Default()
+	router := gin.New()
+	router.Use(middleware.Logger(utils.Log),gin.Recovery())
+
 	routers.SetupRouter(router)
 
 	s := &http.Server{
