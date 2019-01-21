@@ -5,7 +5,7 @@ import (
 	"gin-frame/models"
 	. "gin-frame/utils"
 	"net/http"
-		)
+			)
 
 func UserSetup(v1 *gin.RouterGroup) {
 	r := v1.Group("/user")
@@ -53,21 +53,17 @@ type Info struct {
 	Pig  int `json:"pig"`
 }
 
+
 // @Tags user
 // @Summary 登出
 // @Accept json
 // @Produce  json
-// @Param name  body 		controllers.Info	true 	"test"
-// @Param age  	formData 	string				true 	"test"
-// @Param fff  	query 	string				true 	"test"
+// @Param name  	body 		controllers.Info	true 	"test"
+// @Param age  		formData 	string				true 	"test"
+// @Param title  	formData 	string				true 	"test"
 // @Router /user/logout [post]
+
 func logout(c *gin.Context) {
-	age := c.PostForm("age")
-	Log.Infoln("form age", age)
-
-	Log.Infoln("get age", c.GetString("age"))
-
-	Log.Infoln("get name1", c.GetString("name1"))
 
 
 	c.JSON(http.StatusOK, gin.H{
