@@ -6,8 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"gin-frame/utils"
-	"gin-frame/middleware"
-)
+	)
 
 func main() {
 	// 初始化日志
@@ -18,7 +17,7 @@ func main() {
 	utils.SetupOrm()
 
 	router := gin.New()
-	router.Use(middleware.Logger(utils.Log),gin.Recovery())
+	router.Use(gin.Logger(),gin.Recovery())
 
 	routers.SetupRouter(router)
 
