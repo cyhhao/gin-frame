@@ -1,4 +1,14 @@
 basePath: /v1
+definitions:
+  controllers.Info:
+    properties:
+      age:
+        type: string
+      name1:
+        type: string
+      pig:
+        type: integer
+    type: object
 host: '{{.Host}}'
 info:
   contact:
@@ -8,7 +18,49 @@ info:
   description: This is a sample server Petstore server.
   license: {}
   termsOfService: http://swagger.io/terms/
-  title: Swagger Example API
+  title: API Document 2
   version: "1.0"
-paths: {}
+paths:
+  /user/login:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 姓名备注
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      summary: 登录
+      tags:
+      - user
+  /user/logout:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: test
+        in: body
+        name: name
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.Info'
+          type: object
+      - description: test
+        in: formData
+        name: age
+        required: true
+        type: string
+      - description: test
+        in: query
+        name: fff
+        required: true
+        type: string
+      produces:
+      - application/json
+      summary: 登出
+      tags:
+      - user
 swagger: "2.0"

@@ -5,8 +5,7 @@ import (
 	"gin-frame/models"
 	. "gin-frame/utils"
 	"net/http"
-)
-
+		)
 
 func UserSetup(v1 *gin.RouterGroup) {
 	r := v1.Group("/user")
@@ -16,11 +15,12 @@ func UserSetup(v1 *gin.RouterGroup) {
 
 }
 
+// @Tags user
 // @Summary 登录
 // @Accept json
 // @Produce  json
-// @Param name query string true "name"
-// @Router /login [get]
+// @Param name query string true "姓名备注"
+// @Router /user/login [get]
 func login(c *gin.Context) {
 	user := models.Users{Name: "cyh", Age: 18, Email: "abcdefg@qq.com"}
 	err := Orm.Create(&user).Error
@@ -47,11 +47,30 @@ func login(c *gin.Context) {
 	})
 }
 
-// @Summary Print
+type Info struct {
+	Name string `json:"name1"`
+	Age  string
+	Pig  int `json:"pig"`
+}
+
+// @Tags user
+// @Summary 登出
 // @Accept json
 // @Produce  json
-// @Param name query string true "name"
-// @Router /logout [get]
+// @Param name  body 		controllers.Info	true 	"test"
+// @Param age  	formData 	string				true 	"test"
+// @Param fff  	query 	string				true 	"test"
+// @Router /user/logout [post]
 func logout(c *gin.Context) {
+	age := c.PostForm("age")
+	Log.Infoln("form age", age)
 
+	Log.Infoln("get age", c.GetString("age"))
+
+	Log.Infoln("get name1", c.GetString("name1"))
+
+
+	c.JSON(http.StatusOK, gin.H{
+		"user": 123,
+	})
 }

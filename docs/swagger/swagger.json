@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a sample server Petstore server.",
-        "title": "Swagger Example API",
+        "title": "API Document 2",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
@@ -14,5 +14,85 @@
     },
     "host": "{{.Host}}",
     "basePath": "/v1",
-    "paths": {}
+    "paths": {
+        "/user/login": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "登录",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "姓名备注",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "/user/logout": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "登出",
+                "parameters": [
+                    {
+                        "description": "test",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/controllers.Info"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "test",
+                        "name": "age",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "test",
+                        "name": "fff",
+                        "in": "query",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "controllers.Info": {
+            "type": "object",
+            "properties": {
+                "age": {
+                    "type": "string"
+                },
+                "name1": {
+                    "type": "string"
+                },
+                "pig": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
 }
