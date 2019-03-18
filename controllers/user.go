@@ -3,15 +3,16 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"gin-frame/models"
-		. "gin-frame/utils"
+	. "gin-frame/utils"
 	"net/http"
+	"gin-frame/middlewares"
 )
 
 func UserSetup(v1 *gin.RouterGroup) {
 	r := v1.Group("/user")
 
 	r.GET("login", login)
-	r.POST("logout", logout)
+	r.POST("logout", logout, middlewares.AuthMiddleware(true))
 
 }
 

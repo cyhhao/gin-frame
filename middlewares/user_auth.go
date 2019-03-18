@@ -5,8 +5,7 @@ import (
 	"gin-frame/utils/helpers"
 	. "gin-frame/utils"
 	"gin-frame/utils/res"
-	"gin-frame/models"
-	"gin-frame/middlewares/jwtauth"
+		"gin-frame/middlewares/jwtauth"
 )
 
 func AuthMiddleware(force ... bool) gin.HandlerFunc {
@@ -23,7 +22,7 @@ func AuthMiddleware(force ... bool) gin.HandlerFunc {
 		validate, userId, _ := et.ValidateToken(userTokenStr)
 		if !validate {
 			if isForce {
-				c.JSON(res.Failure(40102))
+				c.JSON(res.Failure(40100))
 				c.Abort()
 			} else {
 				c.Set("userId", "")
@@ -32,18 +31,7 @@ func AuthMiddleware(force ... bool) gin.HandlerFunc {
 			return
 
 		}
-		var sessionToken models.SessionToken
-		err := Orm.First(&sessionToken, "uuid = ?", userId).Error
-		if err != nil || sessionToken.Token != userTokenStr {
-			if isForce {
-				c.JSON(res.Failure(40101))
-				c.Abort()
-			} else {
-				c.Set("userId", "")
-				c.Next()
-			}
-			return
-		}
+
 		c.Set("userId", userId)
 		c.Next()
 
