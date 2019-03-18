@@ -1,0 +1,29 @@
+basePath: /v1
+host: '{{.Host}}'
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server Petstore server.
+  license: {}
+  termsOfService: http://swagger.io/terms/
+  title: API Document 2
+  version: "1.0"
+paths:
+  /user/login:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 姓名备注
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      summary: 登录
+      tags:
+      - user
+swagger: "2.0"

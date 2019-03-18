@@ -12,7 +12,7 @@ import (
 	"gin-frame/utils"
 	)
 
-// @title API Document 2
+// @title API Document
 // @version 1.0
 // @description This is a sample server Petstore server.
 // @termsOfService http://swagger.io/terms/

@@ -17,7 +17,7 @@ func UserSetup(v1 *gin.RouterGroup) {
 
 // @Tags user
 // @Summary 登录
-// @Accept json
+// @Accept x-www-form-urlencoded
 // @Produce  json
 // @Param name query string true "姓名备注"
 // @Router /user/login [get]
@@ -58,11 +58,10 @@ type Info struct {
 // @Summary 登出
 // @Accept json
 // @Produce  json
-// @Param name  	body 		controllers.Info	true 	"test"
-// @Param age  		formData 	string				true 	"test"
-// @Param title  	formData 	string				true 	"test"
+// @Param name  	formData 	string	true 	"test"
+// @Param age  		formData 	int		true 	"test"
+// @Param title  	formData 	string	false 	"可选"
 // @Router /user/logout [post]
-
 func logout(c *gin.Context) {
 
 
