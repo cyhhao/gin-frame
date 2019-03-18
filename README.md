@@ -51,3 +51,8 @@ export MYSQL_PASSWORD=password
 `.air.conf`文件是一份默认配置，若已安装 air ，直接在路径下运行 `air` 即可
 
 
+# 更多模块
+- with-swagger分支：集成了 swagger，可以便捷地生成 API doc
+- with-jwt分支：集成了 jwt 中间件，解析header中的userToken获取用户身份ID
+
+如需同时使用多个模块，可用 git merge 进行组合
